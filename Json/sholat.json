@@ -1,0 +1,13 @@
+{
+  "type" : “sholat”,
+  "data" : [
+  {
+   "dhuhur" : doublevalue,
+   "ashar" : doublevalue,
+   "magrib" : doublevalue,
+   "isya" : doublevalue,
+   "shubuh" : doublevalue,
+   "dhuha" : doublevalue,
+   "jumat" : doublevalue,
+	}
+}

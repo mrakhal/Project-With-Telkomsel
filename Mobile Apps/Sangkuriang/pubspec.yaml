@@ -1,0 +1,48 @@
+name: sangkuriang
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+  intl: 0.15.7
+  path_provider: 0.4.1
+  barcode_scan: ^0.0.4
+  qr_flutter: ^1.1.1
+  device_info: ^0.2.1
+  http: ^0.12.0
+  location: ^1.4.1
+  sqflite: any
+  path: any
+  shared_preferences: ^0.4.3
+  image_picker: "^0.4.5"
+  image_cropper: ^0.0.4
+  transparent_image: ^1.0.0
+  url_launcher: ^4.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/logo.png
+    - assets/Lisa.jpg
+    - assets/avatar.png
+    - assets/maps.png
+    - assets/plus.png
+
+  fonts:
+     - family: Montserrat
+       fonts:
+         - asset: assets/Fonts/Montserrat-Regular.ttf
+         - asset: assets/Fonts/Montserrat-Italic.ttf

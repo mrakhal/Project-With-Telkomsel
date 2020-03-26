@@ -1,0 +1,35 @@
+{
+  "data": {
+    "Fajr": "04:40",
+    "Sunrise": "06:02",
+    "Dhuhr": "11:54",
+    "Asr": "15:15",
+    "Sunset": "17:46",
+    "Maghrib": "17:46",
+    "Isha": "18:58",
+    "SepertigaMalam": "21:51",
+    "TengahMalam": "23:54",
+    "DuapertigaMalam": "01:56",
+    "method": [
+      "Egypt",
+      "Egyptian General Authority of Survey",
+      "Fajr: 19.5° - Isha'a: 17.5°"
+    ]
+  },
+  "time": {
+    "date": "2019-07-03",
+    "time": "09:43:35",
+    "timezone": "Asia/Jakarta",
+    "offset": 7
+  },
+  "location": {
+    "latitude": "-6.9174639000",
+    "longitude": "107.6191228000",
+    "address": "Bandung, Bandung City, West Java, Indonesia"
+  },
+  "debug": {
+    "sunrise": "05:59",
+    "sunset": "17:48"
+  },
+  "status": "OK"
+}

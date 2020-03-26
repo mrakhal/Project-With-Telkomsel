@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="./contoh_files/app.css"> -->
+    <title>Document</title>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Lato:400,700|Oswald:400,700|Roboto:400,700");
+
+    .h15 {
+        height: 15%;
+    }
+
+    .h20 {
+        height: 20%;
+    }
+
+    .h25 {
+        height: 25%;
+    }
+
+    .h30 {
+        height: 20%;
+    }
+
+    .h40 {
+        height: 40%;
+    }
+
+    .h45 {
+        height: 45%;
+    }
+
+    .h60 {
+        height: 60%;
+    }
+
+    .h80 {
+        height: 80%;
+    }
+
+    .h100 {
+        height: 100%;
+    }
+
+    .h25 {
+        height: 25%;
+    }
+
+    .h30 {
+        height: 30%;
+    }
+
+    .h35 {
+        height: 35%;
+    }
+
+    .h50 {
+        height: 50%;
+    }
+
+    .h75 {
+        height: 75%;
+    }
+
+    .w20 {
+        width: 20%;
+    }
+
+    .w30 {
+        width: 30%;
+    }
+
+    .w35 {
+        width: 35%;
+    }
+
+    .w5 {
+        width: 5%;
+    }
+
+    .w15 {
+        width: 15%;
+    }
+
+    .w16 {
+        width: 16.62%;
+    }
+
+    .w10 {
+        width: 10%;
+    }
+
+    .w40 {
+        width: 40%;
+    }
+
+    .w45 {
+        width: 45%;
+    }
+
+    .w60 {
+        width: 60%;
+    }
+
+    .w80 {
+        width: 80%;
+    }
+
+    .w100 {
+        width: 100%;
+    }
+
+    .w25 {
+        width: 25%;
+    }
+
+    .w50 {
+        width: 50%;
+    }
+
+    .w75 {
+        width: 75%;
+    }
+
+    .float {
+        float: left;
+    }
+
+    .pull-left {
+        float: left;
+    }
+
+    .pull-right {
+        float: right;
+    }
+
+    .container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/77/Jama_Masjid%2C_Delhi.jpg');
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .container .container-left,
+    .container .container-right,
+    .container .container-body {
+        position: relative;
+        height: 100%;
+        display: inline-block;
+    }
+
+    .container .container-left {
+        float: left;
+        width: 66%;
+    }
+
+    .block {
+        display: inline-block;
+    }
+</style>
+<script>
+    window.setTimeout("waktu()", 1000);
+
+    function waktu() {
+        var waktu = new Date();
+        setTimeout("waktu()", 1000);
+        document.getElementById("jam").innerHTML = waktu.getHours();
+        document.getElementById("menit").innerHTML = waktu.getMinutes();
+        document.getElementById("detik").innerHTML = waktu.getSeconds();
+    }
+
+    // baru baru
+    window.onload = function () {
+        // Month Day, Year Hour:Minute:Second, id-of-element-container
+        countUpFromTime("Jan 1, 2014 00:00:00", 'countup1'); // ****** Change this line!
+    };
+
+    function countUpFromTime(countFrom, id) {
+        countFrom = new Date(countFrom).getTime();
+        var now = new Date(),
+            countFrom = new Date(countFrom),
+            timeDifference = (now - countFrom);
+
+        var secondsInADay = 60 * 60 * 1000 * 24,
+            secondsInAHour = 60 * 60 * 1000;
+
+        hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
+        mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
+        secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
+        if (secs < 10) {
+            secs = "0" + secs;
+        }
+        if (mins < 10) {
+            mins = "0" + mins;
+        }
+
+        var idEl = document.getElementById(id);
+        idEl.getElementsByClassName('hours')[0].innerHTML = hours;
+        idEl.getElementsByClassName('minutes')[0].innerHTML = mins;
+        idEl.getElementsByClassName('seconds')[0].innerHTML = secs;
+
+        clearTimeout(countUpFromTime.interval);
+        countUpFromTime.interval = setTimeout(function () {
+            countUpFromTime(countFrom, id);
+        }, 1000);
+    }
+</script>
+
+<body>
+    <div class="container">
+        <div class="container-body w100">
+            <div id="header" class="h20 w100">
+                <div id="a" class="h100 w20 float" style="background-color:rgba(42, 36, 44, 0.5);color:white;">
+                    <h2 style="width:190px;padding-left: 20px;">Jumat,<br><span style="color: tan" ;>28 Juni 2019
+                            M</span>
+                        <hr>
+                        <span style="font-size: 20px;">23 Dhulkaidah</span>
+                    </h2>
+                </div>
+                <div id="v" class="h100 w60 float" style="background-color:rgba(42, 36, 44, 0.5);text-align: center;">
+                    <h1 style="color: yellow;">Masjid Al - Telkomsel<br><span style="color: whitesmoke;">Jl. Soekarno
+                            Hatta No. 707. Bandung
+                            Jawa
+                            Barat</span><br>HP : 081123023022</h1>
+                </div>
+                <div id="w" class="h100 w20 float"
+                    style="background-color:rgba(42, 36, 44, 0.5);text-align: center;font-size: 45px;color: red;">
+                    <div class="top2-right" id="countup1"
+                        style="color: yellow;font-size: 40px;font-weight: bold;text-align: center;padding-top: 50px;">
+                        <span class="timeel hours">00</span>
+                        <span class="timeel timeRefHours">:</span>
+                        <span class="timeel minutes">00</span>
+                        <span class="timeel timeRefMinutes">:</span>
+                        <span class="timeel seconds">00</span>
+                        <span class="timeel timeRefSeconds"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row h60 w100" style="margin: 5px;">
+                <div id="body" class="h60 w100"></div>
+            </div>
+            <div id=" footer" class="h20 w100">
+                <div id=" a" class="h100 w16 float"
+                    style="background-color:rgba(254, 30, 255, 0.8); text-align: center">
+                    <h2 style="color:yellow;">Imsyak</h2>
+                    <h1 style="color:white;">04:21</h1>
+                </div>
+                <div id="v" class="h100 w16 float"
+                    style="background-color:rgba(200, 50, 255, 0.8); text-align: center;">
+                    <h2 style="color:yellow;">Shubuh</h2>
+                    <h1 style="color:white;">04:31</h1>
+                </div>
+                <div id="w" class="h100 w16 float"
+                    style="background-color:rgba(150, 100, 255, 0.8);text-align: center;">
+                    <h2 style="color:yellow;">Dzuhur</h2>
+                    <h1 style="color:white;">04:31</h1>
+                </div>
+                <div id=" w" class="h100 w16 float" style="background-color:rgba(0, 150, 255, 0.8);text-align: center;">
+                    <h2 style="color:yellow;">Ashar</h2>
+                    <h1 style="color:white;">04:31</h1>
+                </div>
+                <div id=" w" class="h100 w16 float" style="background-color:rgba(130, 0, 255, 0.8);text-align: center;">
+                    <h2 style="color:yellow;">Maghrib</h2>
+                    <h1 style="color:white;">04:31</h1>
+                </div>
+                <div id=" w" class="h100 w16 float" style="background-color:rgba(35, 20, 255, 0.8);text-align: center;">
+                    <h2 style="color:yellow;">Isya</h2>
+                    <h1 style="color:white;">04:31</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

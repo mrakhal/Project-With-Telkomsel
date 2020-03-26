@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Reminder Sholat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Fjalla+One|Just+Another+Hand|Montserrat|Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .h20 {
+            height: 20vh;
+        }
+
+        .h15 {
+            height: 15vh;
+        }
+
+        .h10 {
+            height: 10vh;
+        }
+
+        .h90 {
+            height: 50vh;
+        }
+
+        .h60 {
+            height: 60vh;
+        }
+
+        .h100 {
+            height: 100%;
+        }
+
+        .col-lg-1,
+        .col-lg-10,
+        .col-lg-11,
+        .col-lg-12,
+        .col-lg-2,
+        .col-lg-3,
+        .col-lg-4,
+        .col-lg-5,
+        .col-lg-6,
+        .col-lg-7,
+        .col-lg-8,
+        .col-lg-9,
+        .col-md-1,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-sm-1,
+        .col-sm-10,
+        .col-sm-11,
+        .col-sm-12,
+        .col-sm-2,
+        .col-sm-3,
+        .col-sm-4,
+        .col-sm-5,
+        .col-sm-6,
+        .col-sm-7,
+        .col-sm-8,
+        .col-sm-9,
+        .col-xs-1,
+        .col-xs-10,
+        .col-xs-11,
+        .col-xs-12,
+        .col-xs-2,
+        .col-xs-3,
+        .col-xs-4,
+        .col-xs-5,
+        .col-xs-6,
+        .col-xs-7,
+        .col-xs-8,
+        .col-xs-9 {
+            position: relative;
+            min-height: 1px;
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+
+        .container-fluid {
+            background-image: url("assets/masjid1.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+    <script>
+        // baru baru
+        window.onload = function () {
+            // Month Day, Year Hour:Minute:Second, id-of-element-container
+            countUpFromTime("Jan 1, 2014 00:00:00", 'countup1'); // ****** Change this line!
+        };
+
+        function countUpFromTime(countFrom, id) {
+            countFrom = new Date(countFrom).getTime();
+            var now = new Date(),
+                countFrom = new Date(countFrom),
+                timeDifference = (now - countFrom);
+
+            var secondsInADay = 60 * 60 * 1000 * 24,
+                secondsInAHour = 60 * 60 * 1000;
+
+            hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
+            mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
+            secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
+            if (secs < 10) {
+                secs = "0" + secs;
+            }
+            if (mins < 10) {
+                mins = "0" + mins;
+            }
+
+            var idEl = document.getElementById(id);
+            idEl.getElementsByClassName('hours')[0].innerHTML = hours;
+            idEl.getElementsByClassName('minutes')[0].innerHTML = mins;
+            idEl.getElementsByClassName('seconds')[0].innerHTML = secs;
+
+            clearTimeout(countUpFromTime.interval);
+            countUpFromTime.interval = setTimeout(function () {
+                countUpFromTime(countFrom, id);
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- <div class="container-fluid">
+        <div class="row h20" style="background-color:lightcyan;">
+            <div class="col-xs-2 h100" style="background-color:black;">.col-xs-6</div>
+            <div class="col-xs-2 h100">.col-xs-6</div>
+            <div class="col-xs-2 h100" style="background-color:black;">.col-xs-6</div>
+            <div class="col-xs-2 h100">.col-xs-6</div>
+            <div class="col-xs-2 h100" style="background-color:black;">.col-xs-6</div>
+            <div class="col-xs-2 h100">.col-xs-6</div>
+        </div>
+        <div class="row h60">
+            <h1> ini body nya</h1>
+        </div>
+        <div class="row" style="height:20vh;background-color:lightcyan;">
+            <div class="col-xs-2 h100" style="background-color:black;">.col-xs-6</div>
+            <div class="col-xs-2 h100">.col-xs-6</div>
+            <div class="col-xs-2 h100" style="background-color:black;">.col-xs-6</div>
+            <div class="col-xs-2 h100">.col-xs-6</div>
+            <div class="col-xs-2 h100" style="background-color:black;">.col-xs-6</div>
+            <div class="col-xs-2 h100">.col-xs-6</div>
+        </div>
+    </div> -->
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-3" style="background-color: rgba(42, 36, 35, 0.7);height: 155px;">
+                <p
+                    style="padding-left:20px;padding-top:10px;font-family: 'Fjalla One', sans-serif;text-shadow: 2px 2px grey;font-size: 1.5vw;color: white;">
+                    <span style="text-shadow: 2px 2px grey;color: yellow;">MINGGU</span><br>05
+                    AGUSTUS 2019
+                    <hr style="width: 150px;margin-left:10px;font-family: 'Fjalla One', sans-serif;"><span
+                        style="padding-left: 20px; padding-top:20px;font-family: 'Fjalla One', sans-serif;text-shadow: 2px 2px grey;color: white;">23
+                        DZULHIZAH</span>
+                </p>
+            </div>
+            <div class="col-xs-6" style="background-color: rgba(42, 36, 35, 0.7);height: 155px;">
+                <p
+                    style="text-align: center;padding-top:20px;font-size: 2vw;font-family: 'Fjalla One', sans-serif;text-shadow: 2px 2px grey;color: white;">
+                    <span style="color: yellow;text-shadow: 2px 2px grey;">MASJID</span> AL - JABAR</p>
+                <p
+                    style="text-align: center;font-size: 1.2vw;font-family: 'Fjalla One', sans-serif;color: white;text-shadow: 1px 1px grey;">
+                    JALAN
+                    SOEKARNO
+                    HATTA
+                    NOMOR 707 BANDUNG JAWA BARAT</p>
+                <p
+                    style="text-align: center;font-size: 1.5vw;font-family: 'Fjalla One', sans-serif;color: whitesmoke;text-shadow: 2px 2px grey;">
+                    DKM
+                    JABAR</p>
+            </div>
+            <div class="col-xs-3" style="background-color: rgba(42, 36, 35, 0.7);height: 155px;">
+                <div class="top2-right" id="countup1"
+                    style="color: red;font-size: 3vw;font-weight: bold;font-family: 'Fjalla One', sans-serif;padding-top:35px;">
+                    <span class="timeel hours">00</span>
+                    <span class="timeel timeRefHours">:</span>
+                    <span class="timeel minutes">00</span>
+                    <span class="timeel timeRefMinutes">:</span>
+                    <span class="timeel seconds">00</span>
+                    <span class="timeel timeRefSeconds"></span>
+                </div>
+            </div>
+            <div class="col-xs-12 h90" style="background-color:transparent;"></div>
+            <div class="col-xs-2" style="background-color: rgba(255, 2, 234, 0.9); height: 173px;">
+                <p
+                    style="color: yellow;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;padding-top: 25px;text-shadow: 2px 2px grey;">
+                    SHUBUH
+                </p>
+                <p id="waktusyuruk"
+                    style="color: white;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;text-shadow: 2px 2px grey;">
+                    04:21
+                </p>
+            </div>
+            <div class="col-xs-2" style="background-color: rgba(9, 96, 155, 0.9); height: 173px;">
+                <p
+                    style="color: yellow;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;padding-top: 25px;text-shadow: 2px 2px grey;">
+                    SYURUK
+                </p>
+                <p id="waktusyuruk"
+                    style="color: white;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;text-shadow: 2px 2px grey;">
+                    04:21
+                </p>
+            </div>
+            <div class="col-xs-2" style="background-color: rgba(34, 2, 98, 0.9); height: 173px;">
+                <p
+                    style="color: yellow;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;padding-top: 25px;text-shadow: 2px 2px grey;">
+                    DZUHUR
+                </p>
+                <p id="waktudzuhur"
+                    style="color: white;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;text-shadow: 2px 2px grey;">
+                    04:21
+                </p>
+            </div>
+            <div class="col-xs-2" style="background-color: rgba(169, 236, 43, 0.9); height: 173px;">
+                <p
+                    style="color: yellow;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;padding-top: 25px;text-shadow: 2px 2px grey;">
+                    ASHAR
+                </p>
+                <p id="waktuashar"
+                    style="color: white;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;text-shadow: 2px 2px grey;">
+                    04:21
+                </p>
+            </div>
+            <div class="col-xs-2" style="background-color: rgba(233, 53, 143, 0.9); height: 173px;">
+                <p
+                    style="color: yellow;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;padding-top: 25px;text-shadow: 2px 2px grey;">
+                    MAGHRIB</p>
+                <p id="waktumaghrib"
+                    style="color: white;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;text-shadow: 2px 2px grey;">
+                    04:21
+                </p>
+            </div>
+            <div class="col-xs-2" style="background-color: rgba(240, 157, 48, 0.9); height: 173px;">
+                <p
+                    style="color: yellow;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;padding-top: 25px;text-shadow: 2px 2px grey;">
+                    ISYA
+                </p>
+                <p id="waktuisya"
+                    style="color: white;font-family: 'Fjalla One', sans-serif;font-size: 3vw;text-align: center;text-shadow: 2px 2px grey;">
+                    04:21
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function updateJadwal() {
+            $.ajax({
+                headers: {
+                    'Access-Control-Allow-Credentials': false,
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET',
+                    'Access-Control-Allow-Headers': 'application/json',
+                },
+                type: 'GET',
+                url: 'sholat.json',
+                dataType: "json",
+                crossDomain: true,
+                success: function (data) {
+                    console.log(data);
+                    //dzuhur :
+                    $('#waktushubuh').text(data.data.Fajr);
+                    $('#waktusyuruk').text(data.data.Sunrise);
+                    $('#waktudzuhur').text(data.data.Dhuhr);
+                    $('#waktuashar').text(data.data.Asr);
+                    $('#waktumaghrib').text(data.data.Maghrib);
+                    $('#waktuisya').text(data.data.Isha);
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            updateJadwal();
+            console.log("ready!");
+
+            setInterval('updateJadwal()', 10000);
+
+        });
+    </script>
+</body>
+</img>
+
+
+</html>

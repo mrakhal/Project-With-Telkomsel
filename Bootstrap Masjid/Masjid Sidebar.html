@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jam Masjid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Fjalla+One|Just+Another+Hand|Montserrat|Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 70px;
+            background-color: rgba(155, 152, 161, 0.6);
+            color: white;
+            text-align: center;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+        }
+
+        .top1-right {
+            position: absolute;
+            top: 50px;
+            right: 16px;
+        }
+
+        .top2-right {
+            position: absolute;
+            top: 100px;
+            right: 16px;
+        }
+
+        .kotak {
+            float: left;
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+        }
+    </style>
+    <script>
+        window.setTimeout("waktu()", 1000);
+
+        function waktu() {
+            var waktu = new Date();
+            setTimeout("waktu()", 1000);
+            document.getElementById("jam").innerHTML = waktu.getHours();
+            document.getElementById("menit").innerHTML = waktu.getMinutes();
+            document.getElementById("detik").innerHTML = waktu.getSeconds();
+        }
+
+        // baru baru
+        window.onload = function () {
+            // Month Day, Year Hour:Minute:Second, id-of-element-container
+            countUpFromTime("Jan 1, 2014 00:00:00", 'countup1'); // ****** Change this line!
+        };
+
+        function countUpFromTime(countFrom, id) {
+            countFrom = new Date(countFrom).getTime();
+            var now = new Date(),
+                countFrom = new Date(countFrom),
+                timeDifference = (now - countFrom);
+
+            var secondsInADay = 60 * 60 * 1000 * 24,
+                secondsInAHour = 60 * 60 * 1000;
+
+            hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
+            mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
+            secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
+            if (secs < 10) {
+                secs = "0" + secs;
+            }
+            if (mins < 10) {
+                mins = "0" + mins;
+            }
+
+            var idEl = document.getElementById(id);
+            idEl.getElementsByClassName('hours')[0].innerHTML = hours;
+            idEl.getElementsByClassName('minutes')[0].innerHTML = mins;
+            idEl.getElementsByClassName('seconds')[0].innerHTML = secs;
+
+            clearTimeout(countUpFromTime.interval);
+            countUpFromTime.interval = setTimeout(function () {
+                countUpFromTime(countFrom, id);
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="container">
+
+        <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%;">
+            <a href="#" class="w3-bar-item w3-button" style="height: 110px;text-align: center;">
+                <p>Shubuh<br><span
+                        style="font-size: 30px;font-weight:900;font-family: 'Fjalla One', sans-serif;">03:47</span></p>
+            </a>
+            <a href="#" class="w3-bar-item1 w3-button" style="height: 110px;text-align: center;">
+                <p>Syuruk<br><span
+                        style="font-size: 30px;font-weight:900;font-family: 'Fjalla One', sans-serif;">05:11</span></p>
+            </a>
+            <a href="#" class="w3-bar-item2 w3-button" style="height: 110px;text-align: center;">
+                <p>Dzuhur<br><span
+                        style="font-size: 30px;font-weight:900;font-family: 'Fjalla One', sans-serif;">11:24</span></p>
+            </a>
+            <a href="#" class="w3-bar-item3 w3-button" style="height: 109px;text-align: center;">
+                <p>Ashar<br><span
+                        style="font-size: 30px;font-weight:900;font-family: 'Fjalla One', sans-serif;">14:26</span></p>
+            </a>
+            <a href="#" class="w3-bar-item4 w3-button" style="height: 109px;text-align: center;">
+                <p>Maghrib<br><span
+                        style="font-size: 30px;font-weight:900;font-family: 'Fjalla One', sans-serif;">17:38</span></p>
+            </a>
+            <a href="#" class="w3-bar-item5 w3-button" style="height: 109px;text-align: center;">
+                <p>Isya<br><span
+                        style="font-size: 30px;font-weight:900;font-family: 'Fjalla One', sans-serif;">18:52</span></p>
+            </a>
+        </div>
+
+        <!-- Page Content -->
+        <div style="margin-left:20%">
+            <img src="assets/masjid.jpg" alt="gambarMasjid" width="1100px" height="588">
+            <div class="top-right" style="font-size: 25px;font-weight:900;color: white">
+                <p>Masjid <span style="color: yellow;font-family: 'Fjalla One', sans-serif;">Al - Jabar</span></p>
+            </div>
+            <div class="top1-right"
+                style="font-size: 20px;font-weight:500;color: white;font-family: 'Shadows Into Light', cursive;">
+                <p>Jalan Soekarno Hatta No. 707 Bandung Jawa Barat Indonesia</p>
+            </div>
+            <div class="top2-right" id="countup1"
+                style="color: yellow;font-size: 20px;font-weight: bold;font-family: 'Fjalla One', sans-serif;">
+                <span class="timeel hours">00</span>
+                <span class="timeel timeRefHours">:</span>
+                <span class="timeel minutes">00</span>
+                <span class="timeel timeRefMinutes">:</span>
+                <span class="timeel seconds">00</span>
+                <span class="timeel timeRefSeconds"></span>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <div class="col-md-6">
+                <p style="color:black;text-align: left;padding-left: 350px;font-weight: 900;">Dzuhur -
+                    11:24:05</p>
+                <marquee behavior="scroll" direction="left" style="background-color: black;color:whitesmoke;">
+                    Sholat
+                    yuk, Mari
+                    kita
+                    ramaikan masjid sama-sama.
+                </marquee>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

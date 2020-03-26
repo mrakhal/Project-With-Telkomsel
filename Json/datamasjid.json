@@ -1,0 +1,9 @@
+{
+	"type": "datamasjid",
+	"data": {
+		"nama": "nama masjid",
+		"alamat": "jalan alamat masjid",
+		"longitude": doublevalue,
+		"latitude": doublevalue,
+	}
+}

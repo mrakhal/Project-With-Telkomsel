@@ -1,0 +1,1137 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard RAFI 2019</title>
+        <meta charset="UTF-8">
+        <!-- <meta http-equiv="refresh" content="900" > -->
+        <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0" />
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- icon -->
+        <link rel="shortcut icon" href="http://10.251.166.161:8090/scriptcase/devel/conf/sys/img/img/tsel-logo.png">
+        <!-- CSS -->
+        <link rel="stylesheet" href="style/grid.css">
+        <link rel="stylesheet" href="style/grid2.css">
+        <link rel="stylesheet" href="vendor/enjoyhint/enjoyhint.css" />
+        <link rel="stylesheet" href="vendor/chosen/chosen.min.css" />
+        <link rel="stylesheet" href="vendor/starrr/dist/starrr.css" />
+        <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="style/app.css" />
+        <style type="text/css">
+            select {
+                /*display: none;*/
+                -webkit-appearance: none;
+                -moz-appearance: none;
+            }
+            .ag-theme-material .ag-header-cell, .ag-theme-material .ag-header-group-cell{
+                background-color: #333333;
+                color: white;
+                font-size:11px !important;
+            }
+            .ag-column-hover{
+                background-color: #666666 !important;
+                color: white !important;
+            }
+            .ag-theme-material {
+                background-color: #333333 !important;
+                font-size:10px !important;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <img src="images/corporate-light.png" title="Telkomsel">
+                <img src="images/siaga-ondark.png" title="RAFI 2019">
+                    <div style="margin-left: 10px; color:#fff;">
+                            <!-- <label class="container10"><span style="margin-left: -150px">Down</span>
+                              <input type="checkbox" id="checkbox5" value="DOWN"  onclick="filterMarkers(document.getElementById('pilihregion').value);" checked>
+                              <span class="checkmark"></span>
+                            </label> -->
+                            <label class="container10" style="margin-left: 0px;"><span style="margin-left: -130px">POI UP</span>
+                              <input type="checkbox" id="checkbox6" value="UP" for="UB2" class="chk-btn" onclick="filterMarkers(document.getElementById('pilihregion').value);" checked>
+                              <span class="checkmark"></span>
+                            </label>
+                    </div>      
+                    
+                    <div id="ceklist" style=" margin-bottom: 10px; margin-left: 10px; color: #fff; ">
+                    <label class="container10"><span style="margin-left: 15px">POI DOWN ON BTS LEVEL</span>
+                      <input type="checkbox" id="checkbox1" value="BTS" for="MP" class="chk-btn" onclick="filterMarkers(document.getElementById('pilihregion').value);" checked>
+                      <span class="checkmark1"></span>
+                    </label>
+                    <label class="container10"><span style="margin-left: 15px">POI DOWN ON CELL LEVEL</span>
+                      <input type="checkbox" id="checkbox2" value="CELL" for="UB2" class="chk-btn" onclick="filterMarkers(document.getElementById('pilihregion').value);" checked>
+                      <span class="checkmark2"></span>
+                    </label>
+                    </div>
+
+                    
+            </div>
+            <div class="title" style="border-right: 3px solid #fff">
+                Dashboard Monitoring & Operation 
+                <br/>
+                RAFI 2019
+            </div>
+            <select class="regionnal-select" id="pilihregion" onchange="filterMarkers(this.value);">
+                <option class="regional-value" data-reg="" data-regi="" data-regio="" value="" data-regionalid="0" data-regname="Nationwide">Nationwide</option>
+                <option class="regional-value" data-regname="Sumbagut" data-reg="/1" data-regi="R01" data-regio="/REGIONAL_1" data-regionalid="1" value="1">Regional 1</option>
+                <option class="regional-value" data-regname="Sumbagsel" data-reg="/2" data-regi="R02" data-regio="/REGIONAL_2" data-regionalid="2" value="2">Regional 2</option>
+                <option class="regional-value" data-regname="Jabotabek" data-reg="/3" data-regi="R03" data-regio="/REGIONAL_3" data-regionalid="3" value="3">Regional 3</option>
+                <option class="regional-value" data-reg="/4" data-regname="Jabar" data-regi="R04" data-regio="/REGIONAL_4" data-regionalid="4" value="4">Regional 4</option>
+                <option class="regional-value" data-reg="/5" data-regname="Jateng" data-regi="R05" data-regio="/REGIONAL_5" data-regionalid="5" value="5">Regional 5</option>
+                <option class="regional-value" data-regname="Jatim" data-reg="/6" data-regi="R06" data-regio="/REGIONAL_6" data-regionalid="6" value="6">Regional 6</option>
+                <option class="regional-value" data-reg="/7" data-regname="BaliNusra" data-regi="R07" data-regio="/REGIONAL_7" data-regionalid="7" value="7">Regional 7</option>
+                <option class="regional-value" data-reg="/8" data-regname="Kalimantan" data-regi="R08" data-regio="/REGIONAL_8" data-regionalid="8" value="8">Regional 8</option>
+                <option class="regional-value" data-reg="/9" data-regi="R09" data-regname="Sulawesi" data-regio="/REGIONAL_9" data-regionalid="9" value="9">Regional 9</option>
+                <option class="regional-value" data-reg="/10" data-regi="R10" data-regio="/REGIONAL_10" data-regname="Sumbagteng" data-regionalid="10" value="10">Regional 10</option>
+                <option class="regional-value" data-reg="/11" data-regname="Puma" data-regi="R11" data-regio="/REGIONAL_11" data-regionalid="11" value="11">Regional 11</option>
+            </select>
+            
+            <div id="alarm-legend" style="margin-bottom: 10px; color:#fff; ">
+                <div style="width:320px;height:45px;background:#333333;">
+                    <div class="w25 float"  style="margin-top:10px !important;margin-left:30px">
+                        <div class="w40 float" style="height:10px;width:20px;background:#c32127"></div> 
+                        <span class="w40 float" style="margin-left:5px;"> Platinum</span>
+                    </div>
+                    <div class="w20 float"  style="margin-top:10px !important">
+                        <div class="w40 float" style="height:10px;width:20px;background:#d0810c"></div> 
+                        <span class="w40 float" style="margin-left:5px;"> Gold</span>
+                    </div>
+                    <div class="w20 float"  style="margin-top:10px !important">
+                        <div class="w40 float" style="height:10px;width:20px;background:#ba68c8"></div> 
+                        <span class="w40 float" style="margin-left:5px;"> Silver</span>
+                    </div>
+                    <div class="w20 float"  style="margin-top:10px !important">
+                        <div class="w40 float" style="height:10px;width:20px;background:#34a352"></div> 
+                        <span class="w40 float" style="margin-left:5px;"> Normal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Header -->
+        <!-- Content Container -->
+        <div class="container">
+            <!-- Container for left side of dashboard -->
+            <div class="container-left">
+                <!--
+                Map of IMF Event
+                which is show list of site status
+                as a marker on map.
+
+                This part has four iconic maps as navigator
+                to it's main map and show more detail
+                -->
+                <div id="maps" class="h80 w100">
+                    <div id="map-main-container">
+                        <div id="map-main"></div>
+                        <!-- <div id="logotsel" style="-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;background-repeat: no-repeat;background-attachment: relative;background-position: center;background-image: url('images/Images/Telkom2.png'); width:100%; margin-bottom: -20px; height: 20%;"></div> -->
+                        <!-- Maps tooltip, display when data layer hover -->
+                        <div class="map-tooltip"></div>
+
+                    </div>
+                    <div class="map-legend open">
+
+                    </div>
+
+                </div>
+                <!-- End of Map -->
+
+
+
+                <!--
+                Clusters Area
+                All IMF events were here
+                and each POI has been clustered
+                by area name like airport, jimbaran,
+                itdc, benoa and sightseeing
+                -->
+                <div id="clusters" class="h20 w100">
+
+                    <!-- Airport -->
+                    <div class="cluster" style="width: 20%">
+                        <div class="title">
+                            <div class="icon">
+                                <i class="flaticon-building"></i>
+                            </div>
+                            <span>MASSIVE AREA</span>
+                        </div>
+                        <div class="content" id="airport">
+                            <div class="availability massive_area">
+                                <div class="label">Availability</div>
+                                <div class="value">
+                                    <span class="critical" data-poi-area="massive_area" data-poi-criteria="availability" data-site-status="platinum"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="quality" data-poi-area="massive_area" data-poi-criteria="availability" data-site-status="gold"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="capacity" data-poi-area="massive_area" data-poi-criteria="availability" data-site-status="silver"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="good" data-poi-area="massive_area" data-poi-criteria="availability" data-site-status="normal">00</span>
+                                </div>
+                            </div>
+                            <div class="quality massive_area">
+                                <div class="label">Quality</div>
+                                <div class="value">
+                                    <span class="critical" data-poi-area="massive_area" data-poi-criteria="quality" data-site-status="platinum">00</span>
+                                    <span class="quality" data-poi-area="massive_area" data-poi-criteria="quality" data-site-status="gold">00</span>
+                                    <span class="capacity" data-poi-area="massive_area" data-poi-criteria="quality" data-site-status="silver">00</span>
+                                    <span class="good" data-poi-area="massive_area" data-poi-criteria="quality" data-site-status="normal">00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jimbaran -->
+                    <div class="cluster"style="width: 20%">
+                        <div class="title">
+                            <div class="icon">
+                                <i class="flaticon-island-with-palm-trees"></i>
+                            </div>
+                            <span>PUBLIC SERVICE</span>
+                        </div>
+                        <div class="content" id="jimbaran">
+                            <div class="availability public_service">
+                                <div class="label">Availability</div>
+                                <div class="value">
+                                    <span class="critical" data-poi-area="public_service" data-poi-criteria="availability" data-site-status="platinum"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="quality" data-poi-area="public_service" data-poi-criteria="availability" data-site-status="gold"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="capacity" data-poi-area="public_service" data-poi-criteria="availability" data-site-status="silver"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="good" data-poi-area="public_service" data-poi-criteria="availability" data-site-status="normal">00</span>
+                                </div>
+                            </div>
+                            <div class="quality public_service">
+                                <div class="label">Quality</div>
+                                <div class="value">
+                                    <span class="critical" data-poi-area="public_service" data-poi-criteria="quality" data-site-status="platinum">00</span>
+                                    <span class="quality" data-poi-area="public_service" data-poi-criteria="quality" data-site-status="gold">00</span>
+                                    <span class="capacity" data-poi-area="public_service" data-poi-criteria="quality" data-site-status="silver">00</span>
+                                    <span class="good" data-poi-area="public_service" data-poi-criteria="quality" data-site-status="normal">00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITDC -->
+                    <div class="cluster" style="width: 20%">
+                        <div class="title">
+                            <div class="icon">
+                                <i class="flaticon-building"></i>
+                            </div>
+                            <span>MALL & INDOOR CENTER</span>
+                        </div>
+                        <div class="content" id="itdc">
+                            <div class="availability mall_indoor_center">
+                                <div class="label">Availabilty</div>
+                                <div class="value">
+                                    <span class="critical" data-poi-area="mall_&_indoor_center" data-poi-criteria="availability" data-site-status="platinum"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="quality" data-poi-area="mall_&_indoor_center" data-poi-criteria="availability" data-site-status="gold"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="capacity" data-poi-area="mall_&_indoor_center" data-poi-criteria="availability" data-site-status="silver"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="good" data-poi-area="mall_&_indoor_center" data-poi-criteria="availability" data-site-status="normal">00</span>
+                                </div>
+                            </div>
+                            <div class="quality mall_indoor_center">
+                                <div class="label">Quality</div>
+                                <div class="value">
+                                    <span class="critical" data-poi-area="mall_&_indoor_center" data-poi-criteria="quality" data-site-status="platinum">00</span>
+                                    <span class="quality" data-poi-area="mall_&_indoor_center" data-poi-criteria="quality" data-site-status="gold">00</span>
+                                    <span class="capacity" data-poi-area="mall_&_indoor_center" data-poi-criteria="quality" data-site-status="silver">00</span>
+                                    <span class="good" data-poi-area="mall_&_indoor_center" data-poi-criteria="quality" data-site-status="normal">00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benoa -->
+                    <div class="cluster" style="width: 20%">
+                        <div class="title">
+                            <div class="icon">
+                                <i class="flaticon-building"></i>
+                            </div>
+                            <span>RELIGION</span>
+                        </div>
+                        <div class="content" id="benoa">
+                            <div class="availability religion">
+                                <div class="label">Availability</div>
+                                <div class="value">
+                                    <span class="critical" data-poi-area="religion" data-poi-criteria="availability" data-site-status="platinum"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="quality" data-poi-area="religion" data-poi-criteria="availability" data-site-status="gold"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="capacity" data-poi-area="religion" data-poi-criteria="availability" data-site-status="silver"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="good" data-poi-area="religion" data-poi-criteria="availability" data-site-status="normal">00</span>
+                                </div>
+                            </div>
+                            <div class="quality religion">
+                                <div class="label">Quality</div>
+                                <div class="value">
+                                    <span class="critical" data-poi-area="religion" data-poi-criteria="quality" data-site-status="platinum">00</span>
+                                    <span class="quality" data-poi-area="religion" data-poi-criteria="quality" data-site-status="gold">00</span>
+                                    <span class="capacity" data-poi-area="religion" data-poi-criteria="quality" data-site-status="silver">00</span>
+                                    <span class="good" data-poi-area="religion" data-poi-criteria="quality" data-site-status="normal">00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sightseeing 1 -->
+                    <div class="cluster" style="width: 20%">
+                        <div class="title">
+                            <div class="icon">
+                                <i class="flaticon-island-with-palm-trees"></i>
+                            </div>
+                            <span>UNIQUE AREA</span>
+                        </div>
+                        <div class="content">
+                            <div class="availability unique_area">
+                                <div class="label">Availability</div>
+                                <div class="value">
+                                    <span class="critical" data-poi-area="unique_area" data-poi-criteria="availability" data-site-status="platinum"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="quality" data-poi-area="unique_area" data-poi-criteria="availability" data-site-status="gold"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="capacity" data-poi-area="unique_area" data-poi-criteria="availability" data-site-status="silver"><span style="font-size:10pt">00</span> <sub style="font-size:9pt">00</sub></span>
+                                    <span class="good" data-poi-area="unique_area" data-poi-criteria="availability" data-site-status="normal">00</span>
+                                </div>
+                            </div>
+
+                            <div class="flores-sumba">
+                                <div class="quality unique_area">
+                                    <div class="label">Quality</div>
+                                    <div class="value">
+                                        <span class="critical" data-poi-area="unique_area" data-poi-criteria="quality" data-site-status="platinum">00</span>
+                                        <span class="quality" data-poi-area="unique_area" data-poi-criteria="quality" data-site-status="gold">00</span>
+                                        <span class="capacity" data-poi-area="unique_area" data-poi-criteria="quality" data-site-status="silver">00</span>
+                                        <span class="good" data-poi-area="unique_area" data-poi-criteria="quality" data-site-status="normal">00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<!-- 
+                    <div class="cluster" style="width: 19%">
+                        <div class="title">
+                            <div class="icon">
+                                <i class="flaticon-pie-chart"></i>
+                            </div>
+                            <span>SITE SUMMARY</span>
+                        </div>
+                        <div class="content" id="network-summ">
+                            
+                        </div>
+                    </div> -->
+<!--                     <div id="network-summ" style="width:160px; margin-bottom: 10px; height: 160px">
+                            
+                    </div>                    --> 
+                </div>
+                <!-- End of Cluster -->
+                
+            </div>
+            <!-- And of left container -->
+
+            <!-- Container right -->
+            <div class="container-right">
+
+                <!-- Container Right Top -->
+                <div class="h80 w100 cr-top">
+
+                    <!-- List incidents -->
+                    <div id="incident-list" class="h15 w50 float" >
+                        <div class="title"><i class="flaticon-park-tickets-couple"></i>NON RAN Tickets Summary</div>
+                        <div class="content ticket-container">
+                            <div class="ticket assign" data-status="assigned">
+                                <span class="label" align="left"><i class="flaticon-phone"></i> assigned</span>
+                                <span class="value assigned2">0</span>
+                            </div>
+                            <div class="ticket progress" data-status="inprogress">
+                                <span class="label" align="left"><i class="flaticon-process-arrows"></i> in progress</span>
+                                <span class="value progress2">0</span>
+                            </div>
+                            <div class="ticket resolved" data-status="resolved">
+                                <span class="label" align="left"><i class="flaticon-tick-inside-circle"></i> resolved</span>
+                                <span class="value resolved2">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="incident-list" class="h15 w50 float" >
+                        <div class="title"><i class="flaticon-park-tickets-couple"></i>RAN Tickets Summary</div>
+                        <div class="content ticket-container">
+                            <div class="ticket1 assign" data-status="assigned1">
+                                <span class="label" align="left"><i class="flaticon-phone"></i> assigned</span>
+                                <span class="value assigned1">0</span>
+                            </div>
+                            <div class="ticket1 progress" data-status="inprogress1">
+                                <span class="label" align="left"><i class="flaticon-process-arrows"></i> in progress</span>
+                                <span class="value progress1" >0</span>
+                            </div>
+                            <div class="ticket1 resolved" data-status="resolved1">
+                                <span class="label" align="left"><i class="flaticon-tick-inside-circle"></i> resolved</span>
+                                <span class="value resolved1" >0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of list incidents -->
+
+                    <!-- Transport utilization -->
+                    <!-- <div id="transport-utilization" class="h50 w50 float">
+                        <div class="title"><i class="flaticon-server"></i> Transport utilization</div>
+                        <div class="content"></div>
+                    </div> -->
+                    <!-- End of transport utilization -->
+
+                    <!-- BSC / RNC Alarm -->
+                    <div id="bscrnc" class="h15 w100 float">
+                        <div class="title"><span class="bullet bullet-legendinactive"></span> Controller List - Nationwide</div>
+                        <div class="content" style='margin-top:5px !important;height:160%'></div>
+                    </div>
+
+                    <div id="bscrnc2" class="h20 w100 float">
+                        <div class="title"><span class="bullet bullet-legendalarm"></span> Controller Alarm Active - Nationwide</div>
+                        <div class="content" style='margin-top:5px !important'></div>
+                    </div>
+                    <!-- End of BSC / RNC alarm -->
+
+                    <!-- Core monitoring -->
+                    <!-- <div id="core-monitoring" class="h40 w100 float">
+                        <div class="title"><i class="flaticon-server-2"></i> Core Monitoring  - Nationwide</div>
+                        <div class="content">
+                            <div class="h50">
+                                <div class="core-item w50 h100" id="scr">
+                                    <span class="label" align="left">SCR</span>    
+                                    <span class="value">100%</span>
+                                    <span class="site2" style="margin-right: 15px;margin-left:10px">Worst NE</span>
+                                    <span class="site4" style="margin-right: 15px;margin-left:10px">Worst Value</span>
+                                    <span class="site" style="margin-right: 15px;margin-left:10px">---</span>
+                                    <span class="site1" style="margin-right: 15px;margin-left:10px">---</span>
+                                    
+                                </div>
+                                <div class="vertical-line"></div>
+                                <div class="core-item w50 h100" id="pdp-sr">
+                                    <span class="label" align="left">PDP SR (2G)</span>
+                                    <span class="value" >100%</span>
+                                    <span class="site2">Worst NE</span>
+                                    <span class="site4">Worst Value</span>
+                                    <span class="site" >---</span>
+                                    <span class="site1">---</span>
+                                </div>
+                            </div>
+                            <div class="h50">
+                                <div class="core-item w50 h100" id="pdp-sr">
+                                    <span class="label" align="left">PDP SR (3G)</span>
+                                    <span class="value">100%</span>
+                                    <span class="site2" style="margin-right: 15px;margin-left:10px">Worst NE</span>
+                                    <span class="site4" style="margin-right: 15px;margin-left:10px">Worst Value</span>
+                                    <span class="site" style="margin-right: 15px;margin-left:10px">---</span>
+                                    <span class="site1" style="margin-right: 15px;margin-left:10px">---</span>
+                                </div>
+                                <div class="vertical-line"></div>
+                                <div class="core-item w50 h100" id="pdp-sr">
+                                    <span class="label" align="left">PDP SR (4G)</span>
+                                    <span class="value">100%</span>
+                                    <span class="site2">Worst NE</span>
+                                    <span class="site4">Worst Value</span>
+                                    <span class="site" >---</span>
+                                    <span class="site1">---</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div id="core-monitoring" class="h40 w100 float">
+                        <div class="title"><i class="flaticon-server-2"></i> Core Monitoring  - Nationwide</div>
+                        <div class="content" style="margin-top:10px !important;padding-left:30px">
+                            <div class="h20 w100 float core-list" id="scr">
+                                <div class="w25 float" style="text-align:left">
+                                    <span id="scr-label" class="label">SCR</span>
+                                </div>
+                                <div class="w20 float" style="text-align:left">
+                                    <span id="scr-value" data-id="scr" class="value detail-core-monit">100</span>
+                                </div>
+                                <div class="w15 vertical-line float"></div>
+                                <div class="w20 float">
+                                    <div class="h50 float worst-ne-title">Worst NE</div>
+                                    <div class="h50 float worst-value-title">Worst Value</div>
+                                </div>
+                                <div class="w20 float">
+                                    <div id="scr-worst-ne" class="h50 float worst-ne">----</div>
+                                    <div id="scr-worst-ne-value" class="h50 float worst-value">----</div>
+                                </div>
+                            </div>
+                            <div class="h20 w100 float core-list" id="pdpsr2g">
+                                <div class="w25 float" style="text-align:left">
+                                    <span class="label">PDP SR-2G</span>
+                                </div>
+                                <div class="w20 float" style="text-align:left">
+                                    <span id="pdpsr2g-value" data-id="pdp-sr" class="value detail-core-monit">100</span>
+                                </div>
+                                <div class="w15 vertical-line float"></div>
+                                <div class="w20 float">
+                                    <div class="h50 float worst-ne-title">Worst NE</div>
+                                    <div class="h50 float worst-value-title">Worst Value</div>
+                                </div>
+                                <div class="w20 float">
+                                    <div id="pdpsr2g-worst-ne" class="h50 float worst-ne">----</div>
+                                    <div id="pdpsr2g-worst-ne-value" class="h50 float worst-value">----</div>
+                                </div>
+                            </div>
+                            <div class="h20 w100 float core-list" id="pdpsr3g">
+                                <div class="w25 float" style="text-align:left">
+                                    <span class="label">PDP SR-3G</span>
+                                </div>
+                                <div class="w20 float" style="text-align:left">
+                                    <span id="pdpsr3g-value" data-id="pdp-sr" class="value detail-core-monit">100</span>
+                                </div>
+                                <div class="w15 vertical-line float"></div>
+                                <div class="w20 float">
+                                    <div class="h50 float worst-ne-title">Worst NE</div>
+                                    <div class="h50 float worst-value-title">Worst Value</div>
+                                </div>
+                                <div class="w20 float">
+                                    <div id="pdpsr3g-worst-ne" class="h50 float worst-ne">----</div>
+                                    <div id="pdpsr3g-worst-ne-value" class="h50 float worst-value">----</div>
+                                </div>
+                            </div>
+                            <div class="h20 w100 float core-list" id="pdpsr4g">
+                                <div class="w25 float" style="text-align:left">
+                                    <span class="label">PDP SR-4G</span>
+                                </div>
+                                <div class="w20 float" style="text-align:left">
+                                    <span id="pdpsr4g-value" data-id="pdp-sr" class="value detail-core-monit">100</span>
+                                </div>
+                                <div class="w15 vertical-line float"></div>
+                                <div class="w20 float">
+                                    <div class="h50 float worst-ne-title">Worst NE</div>
+                                    <div class="h50 float worst-value-title">Worst Value</div>
+                                </div>
+                                <div class="w20 float">
+                                    <div id="pdpsr4g-worst-ne" class="h50 float worst-ne">----</div>
+                                    <div id="pdpsr4g-worst-ne-value" class="h50 float worst-value">----</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div id="core-monitoring" class="h30 w100 float"> -->
+                    <div id="network-monitoring" class="h35 w100 float">
+                        <div class="title"><i class="flaticon-chart"></i> Internet Monitoring</div>
+                        <div class="content">
+                            <div id="internet" class="w100 h100 float"></div>
+                        </div>
+                    <!-- </div> -->
+                    </div>
+                    <!-- End core monitoring -->
+
+                </div>
+                <!-- End Container Right Top -->
+
+                <!-- All hidden layer that show when action
+                trigger in visible layer. When some hidden layer show,
+                another hidden layer in visible state will be hidden as soon
+                as new hidden layer showing. Those layer is may be called
+                as detailed layer.
+                -->
+
+                <!-- POI detail -->
+                <div class="detail" id="poi">
+                    <div class="detail-header">
+                        <div class="detail-header-inner">
+                            <span><i class="flaticon-visit"></i> <span id="poi-name">POI Detail</span></span>
+                            <span class="pull-right detail-close"><i class="flaticon-close"></i></span>
+                        </div>
+
+                    </div>
+                    <div class="detail-content">
+                        <ul class="tabs">
+                            
+                            <li class="tab-link right-tab-poi-title current" data-tab="tab-3"><i class="flaticon-radio-control"></i> Sites</li>
+<!--                             <li class="tab-link" data-tab="tab-2"><i class="flaticon-satellite-dish"></i> Incidents</li> -->
+                            <!-- <li class="tab-link" data-tab="tab-4"><i class="flaticon-head"></i> Engineer</li> -->
+                        </ul>
+
+                        
+                        <div id="tab-3" class="tab-content right-tab-poi current">
+                            <div class="content">
+                                <div class="site-list"></div>
+                            </div>
+                        </div>
+<!--                         <div id="tab-2" class="tab-content">
+                            <div class="content">
+                                <div class="site-alarm"></div>
+                            </div>
+                        </div> -->
+<!--                         <div id="tab-4" class="tab-content">
+                            <div class="content"> -->
+                                <!-- Engineer list-->
+                                <!-- <div class="engineer-poi"></div> -->
+                                <!-- End engineer list -->
+<!--                             </div>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- End POI detail -->
+
+            </div>
+            <!-- End of right container -->
+        </div>
+        <!-- End Container -->
+
+        <!-- Create ticket modal -->
+        <div id="create-ticket-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-park-tickets-couple"></i> Create RAN Ticket</span>
+                    <span class="close pull-right btn-close"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <div class="content-load"><div><i class="flaticon-radio-control"></i><br/>Sending ticket via <br/>the satellite ...</div></div>
+                        <form id="ticket-form">
+                            <div class="input-group">
+                                <label>Site ID</label>
+                                <input type="text" id="site-id" readonly>
+                                <input type="hidden" id="site-lat">
+                                <input type="hidden" id="site-lng">
+                            </div>
+                            <div class="input-group">
+                                <label class="active">Site Affected</label>
+                                <select id="site-affected" multiple class="chosen" style="width: 100%" data-placeholder=" "></select>
+                            </div>
+                            <div class="input-group">
+                                <label>Detail Problem/Incident</label>
+                                <textarea id="alarm-text" readonly rows="5"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <label>Severity</label>
+                                <input type="text" id="alarm-severity" readonly>
+                            </div>
+                            <div class="input-group">
+                                <label>Description</label>
+                                <textarea id="alarm-description"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="btn-ticket-form"><i class="flaticon-checked"></i> Submit</button>
+                    <button class="btn btn-default btn-close"><i class="flaticon-close-1"></i> Cancel</button>
+                </div>
+            </div>
+        </div>
+        <!-- End create ticket modal -->
+
+        <!-- Resolve RAN ticket modal -->
+        <div id="resolve-ticket-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-park-tickets-couple"></i> Resolve RAN Ticket</span>
+                    <span class="close pull-right btn-close"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <div class="content-load"><div><i class="flaticon-radio-control"></i><br/>Sending ticket via <br/>the satellite ...</div></div>
+                        <form id="ticket-form">
+                            <div class="input-group">
+                                <label>Site ID</label>
+                                <input type="text" id="resolve-site-id" readonly>
+                            </div>
+                            <div class="input-group">
+                                <label class="active">Site Affected</label>
+                                <select id="resolve-site-affected" multiple class="chosen" style="width: 100%" data-placeholder=" "></select>
+                            </div>
+                            <div class="input-group">
+                                <label>Alarm Text</label>
+                                <textarea id="resolve-alarm-text" readonly rows="5"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <label>Alarm Severity</label>
+                                <input type="text" id="resolve-alarm-severity" readonly>
+                            </div>
+                            <div class="input-group">
+                                <label>Description</label>
+                                <textarea id="resolve-alarm-description"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="btn-ticket-form"><i class="flaticon-checked"></i> Submit</button>
+                    <button class="btn btn-default btn-close"><i class="flaticon-close-1"></i> Cancel</button>
+                </div>
+            </div>
+        </div>
+        <!-- End resolve RAN ticket modal -->
+
+        <!-- Create non RAN ticket modal -->
+        <div id="create-manual-ticket-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-park-tickets-couple"></i> Create Non RAN Ticket</span>
+                    <span class="close pull-right btn-close"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <div class="content-load"><div><i class="flaticon-radio-control"></i><br/>Sending ticket via <br/>the satellite ...</div></div>
+                        <form id="ticket-form">
+                            <div class="input-group">
+                                <label class="active">Category</label>
+                                <select class="chosen" id="ticket-nr-category">
+                                    <option value="Core">Core</option>
+                                    <option value="Transport">Transport</option>
+                                    <option value="VVIP">VVIP</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label class="active">Severity</label>
+                                <select class="chosen" id="ticket-nr-severity">
+                                    <option value="Critical">Critical</option>
+                                    <option value="Major">Major</option>
+                                    <option value="Warning">Warning</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Assign To</label>
+                                <input type="text" id="ticket-nr-assign-to">
+                            </div>
+                            <div class="input-group">
+                                <label>Description</label>
+                                <textarea id="ticket-nr-description"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="btn-ticket-manual-form"><i class="flaticon-checked"></i> Submit</button>
+                    <button class="btn btn-default btn-close"><i class="flaticon-close-1"></i> Cancel</button>
+                </div>
+            </div>
+        </div>
+        <!-- End create non RAN ticket modal -->
+
+        <!-- Tracing RAN ticket modal -->
+        <div id="trace-ticket-detail" class="modal level2">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-park-tickets-couple"></i> Ticket Number</span>
+                    <span class="close pull-right btn-close-level2"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <div class="content-load"><div><i class="flaticon-radio-control"></i><br/>Sending ticket via <br/>the satellite ...</div></div>
+                        <div class="input-group rating-closed">
+                            <span style="display: block;text-align: center;font-size: 0.85rem">Thanks for your feedback</span>
+                            <div style="text-align: center; width: 100%">
+                                <div id='star-closed'></div>
+                                <span id="rating-category-closed" style="text-align: center; display: block; width: 100%"></span>
+                            </div>
+                        </div>
+                        <div class="input-group rating-container">
+                            <label class="active">Please rate our engineer</label>
+                            <div style="margin-top: 10px">
+                                <input type="hidden" id="rating">
+                                <div style="font-size: 22px" class='starrr'></div>
+                                <span id="rating-category" style="margin-left: 15px"></span>
+                            </div>
+                        </div>
+                        <div class="input-group note-container">
+                            <label>Add Note</label>
+                            <input id="ticket-work-info" style="padding-right: 100px;box-sizing: border-box">
+                            <div style="position: absolute;right: 15px; bottom: 10px;background: #fff; padding-left: 10px;">
+                                <button class="btn btn-primary add-work-info"><i class="flaticon-checked"></i> Submit</button>
+                                <button class="btn btn-warning change-work-info"><i class="flaticon-warning-sign"></i> Escalation</button>
+                                <button class="btn btn-success resolve-work-info"><i class="flaticon-checked"></i> Resolve</button>
+                                <button class="btn btn-success close-work-info"><i class="flaticon-checked"></i> Close</button>
+                            </div>
+                        </div>
+                        <div class="timeline">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End tracing RAN ticket modal -->
+
+        <!-- Tracing non RAN ticket modal -->
+        <div id="trace-manual-ticket-detail" class="modal level2">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-park-tickets-couple"></i> Ticket Number</span>
+                    <span class="close pull-right btn-close-level2"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <div class="content-load"><div><i class="flaticon-radio-control"></i><br/>Sending ticket via <br/>the satellite ...</div></div>
+                        <div class="input-group input-manual">
+                            <label>Add Note</label>
+                            <input id="ticket-work-info-manual">
+                        </div>
+                        <div class="input-group input-manual">
+                            <label class="active">Status</label>
+                            <select class="chosen" id="ticket-work-info-status-manual">
+                                <option value="IN PROGRESS">In Progress</option>
+                                <option value="RESOLVED">Resolved</option>
+                                <option value="CLOSED">Closed</option>
+                            </select>
+                        </div>
+                        <div class="input-group input-manual">
+                            <button class="btn btn-primary add-work-info-manual"><i class="flaticon-checked"></i> Submit</button>
+                        </div>
+
+                        <div class="timeline-manual" style="height: 300px">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End tracing non RAN ticket modal -->
+
+        <!-- Create non RAN ticket modal -->
+        <div id="bscrnc-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="title" style="height: 70%"><i class="flaticon-space-satellite"></i> Alarms</span>
+                    <span class="close pull-right btn-close"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <!-- <div class="bscrnc-alarm">
+							<table style="font-size:11px !important" id="tbl-alarm-active-detail" class="tbl">
+								<thead>
+									<tr>
+										<th>site code</th>
+										<th>site name</th>
+										<th>nsa</th>
+										<th>ne name</th>
+										<th>regional name</th>
+										<th>alarm</th>
+										<th>started</th>
+										<th>duration</th>
+										<th>alarm category</th>
+									</tr>
+								</thead>
+								<tbody style="font-size:9px !important"></tbody>
+							</table>
+                            <ul></ul>
+                        </div> -->
+                        <div class="bscrnc-alarm">
+                            <div id="bsc-alarm-active-detail" style="height: 100%;" class="ag-theme-material"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End create non RAN ticket modal -->
+
+        <!-- Ticket list modal -->
+        <div id="ticket-modal" class="modal">
+            <div class="modal-content almost-full">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-park-tickets-couple"></i> Ticket Detail</span>
+                    <span class="close pull-right btn-close ticket-detail-close"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <div id="tbl-detail-ticket" style="height: 100%;" class="ag-theme-material"></div>
+                        <!-- <table id="tbl-ticket-detail" class="tbl">
+                            <thead>
+                                <tr>
+                                    <th>POI Name</th>
+                                    <th>POI Category</th>
+                                    <th>Site Class</th>
+                                    <th>Regional</th>
+                                    <th>Site ID</th>
+                                    <th>Ticket Created</th>
+                                    <th>Ticket Number</th>
+                                    <th>Category</th>
+                                    <th>Severity</th>
+                                    <th>User Name</th>
+                                    <th>Ticket Summary</th>
+                                    <th>Status Name</th>
+                                    <th>Fault nodes</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Ticket list modal -->
+
+        <!-- Ticket list modal -->
+        <div id="ticket-tracking-modal" class="modal">
+            <div class="modal-content almost-full">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-park-tickets-couple"></i> Ticket Tracking</span>
+                    <span class="close pull-right btn-close"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <table id="tbl-ticket-detail" class="tbl">
+                            <thead>
+                                <tr>
+                                    <th>Number</th>
+                                    <th>Severity</th>
+                                    <th>Status</th>
+                                    <th>Site id</th>
+                                    <th>Site Name</th>
+                                    <th>POI Name</th>
+                                    <th>Assignee</th>
+                                    <th>Phone</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Ticket list modal -->
+
+        <!-- Ticket non RAN modal -->
+        <div id="ticket-non-ran-modal" class="modal">
+            <div class="modal-content almost-full">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-park-tickets-couple"></i> Ticket Non RAN Detail</span>
+                    <span class="close pull-right btn-close ticket-detail-close"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <table id="tbl-ticket-non-ran" class="tbl">
+                            <thead>
+                                <tr>
+                                    <th>Number</th>
+                                    <th>Severity</th>
+                                    <th>Status</th>
+                                    <th>Category</th>
+                                    <th>Assignee</th>
+                                    <th>Description</th>
+                                    <th>Time created</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Ticket Non RAN list modal -->
+
+        <!-- Core monitoring detail -->
+        <div id="core-monitoring-modal" class="modal">
+            <div class="modal-content almost-full">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-chart"></i> Core Monitoring Detail</span>
+                    <span class="close pull-right btn-close core-monitoring-close"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div id="core-monitoring-graph" style="width: 100%;height:100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Core monitoring detail -->
+
+        <!-- Transport util detail -->
+        <div id="transport-util-modal" class="modal">
+            <div class="modal-content almost-full">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-chart"></i> Transport Utilization Detail</span>
+                    <span class="close pull-right btn-close transport-detail-close"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div id="transport-util-graph" style="width: 100%;height:100%">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Core monitoring detail -->
+
+        <!-- Inbound Roamer detail -->
+        <div id="inbound-roamer-modal" class="modal">
+            <div class="modal-content almost-full">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-pie-chart"></i> Inbound Outbound Detail</span>
+                    <span class="close pull-right btn-close"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    <div id="inbound-roamer-graph" style="width: 100%;height:100%">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Inbound Roamer detail -->
+
+        <!-- Site status detail -->
+        <div id="site-status-modal" class="modal">
+            <div class="modal-content almost-full">
+                <div class="modal-header">
+                    <span class="title"><i class="flaticon-radio-control"></i> Site Status</span>
+                    <span class="close pull-right btn-close site-status-close"><i class="flaticon-close"></i></span>
+                </div>
+                <div class="modal-body">
+                    
+                    <ul class="tabs">                            
+                        <li class="tab-link current" id='tab-link-ava' data-tab="tab-a"><i class="flaticon-radio-control"></i> Alarm Availability</li>
+                        <li class="tab-link" id='tab-link-qty2g' data-tab="tab-b"><i class="flaticon-satellite-dish"></i> Alarm Quality 2G</li>
+                        <li class="tab-link" id='tab-link-qty3g' data-tab="tab-c"><i class="flaticon-head"></i> Alarm Quality 3G</li>
+                        <li class="tab-link" id='tab-link-qty4g' data-tab="tab-d"><i class="flaticon-head"></i> Alarm Quality 4G</li>
+                        <li class="tab-link" id='tab-link-ticket' data-tab="tab-e"><i class="flaticon-head"></i> Ticket</li>
+                    </ul>
+
+                    <div id="tab-a" class="tab-content ava current">
+                        <div class="content-holder">
+                            <table id="tbl-alarm-ava" class="tbl">
+                                <thead>
+                                    <tr>
+                                        <th>POI Name</th>
+                                        <th>POI Category</th>
+                                        <th>Site Class</th>
+                                        <th>Regional</th>
+                                        <th class='hide'>Site ID</th>
+                                        <th class='hide'>NSA</th>
+                                        <th class='hide'>NE Name</th>
+                                        <th class='hide'>Occurence Time</th>
+                                        <th class='hide'>Alarm Name</th>
+                                        <th class='hide'>Alarm Category</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="tab-b" class="tab-content qty2g">
+                        <div class="content-holder">
+                            <table id="tbl-alarm-quality2g" class="tbl">
+                                <thead>
+                                    <tr>
+                                        <th>POI Name</th>
+                                        <th>POI Area</th>
+                                        <th>Site Class</th>
+                                        <th>Regional</th>
+                                        <th class='hide'>Site ID</th>
+                                        <th class='hide'>Cell</th>
+                                        <th>Band</th>
+                                        <th>TCH Blocking</th>
+                                        <th>SD Setup SR Rate</th>
+                                        <!-- <th>HOSR</th>
+                                        <th>TBF Complete</th> -->
+                                        <th>TCH Drop Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="tab-c" class="tab-content qty3g">
+                        <div class="content-holder">
+                            <table id="tbl-alarm-quality3g" class="tbl">
+                                <thead>
+                                    <tr>
+                                        <th>POI Name</th>
+                                        <th>POI Area</th>
+                                        <th>Site Class</th>
+                                        <th>Regional</th>
+                                        <th class='hide'>Site ID</th>
+                                        <th>cssr cs combine rate</th>
+                                        <th>cssr ps rate</th>
+                                        <th>hsdpa accessability rate</th>
+                                        <th>huspa accessability rate</th>
+                                        <!-- <th>ifhosr rate</th>
+                                        <th>ishosr rate</th>
+                                        <th>shhosr rate</th> -->
+                                        <th>hsdpa retainability rate</th>
+                                        <th>hsupa accessability rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="tab-d" class="tab-content qty4g">
+                        <div class="content-holder">
+                            <table id="tbl-alarm-quality4g" class="tbl">
+                                <thead>
+                                    <tr>
+                                        <th>POI Name</th>
+                                        <th>POI Area</th>
+                                        <th>Site Class</th>
+                                        <th>Regional</th>
+                                        <th class='hide'>Site ID</th>
+                                        <th class='hide'>Cell</th>
+                                        <th>Band</th>
+                                        <!-- <th>Max Resource Block Utilizing Rate</th> -->
+                                        <!-- <th>RRC Max User Number</th> -->
+                                        <th>ERAB Setup Success Rate</th>
+                                        <!-- <th>RRC Setup Success Rate</th>
+                                        <th>Numerator Intra Frequency Handover Out Success Rate</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="tab-e" class="tab-content ticket">
+                       <div class="content-holder">
+                            <table id="tbl-detail-ticket" class="tbl">
+                                <thead>
+                                    <tr>
+                                        <th>POI Name</th>
+                                        <th>POI Area</th>
+                                        <th>Site Class</th>
+                                        <th>Regional</th>
+                                        <th>Site ID</th>
+                                        <th>Ticket Created</th>
+                                        <th>Ticket Number</th>
+                                        <th>Category</th>
+                                        <th>Severity</th>
+                                        <th>User Name</th>
+                                        <th>Ticket Summary</th>
+                                        <th>Status Name</th>
+                                        <th>Fault nodes</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Site status detail -->
+
+        <!-- Load all scripts needed here -->
+        <script src="vendor/jquery/dist/jquery.min.js"></script>
+
+        <!-- Load JS library -->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="vendor/enjoyhint/enjoyhint.min.js"></script>
+        <script type="text/javascript" src="vendor/siema/dist/siema.min.js"></script>
+        <script type="text/javascript" src="vendor/chosen/chosen.jquery.min.js"></script>
+        <script type="text/javascript" src="vendor/ajax-chosen/lib/ajax-chosen.min.js"></script>
+        <script type="text/javascript" src="vendor/starrr/dist/starrr.js"></script>
+        <script src="https://unpkg.com/ag-grid-enterprise@20.2.0/dist/ag-grid-enterprise.min.js"></script>
+
+        <!-- Google maps API library -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl2R6vNMufXMinkGykf-iwWFfqjSLfuOQ&callback=initMap" async defer></script>
+        <script type="text/javascript" src="js/markerclusterer.js"></script>
+
+        <!-- Load all component js -->
+        <script src="js/config.js"></script>
+        <script src="js/site-summary.js"></script>
+        <script src="js/map.js"></script>
+        <script src="js/quality.js"></script>
+        <script src="js/internet-monitoring.js"></script>
+        <script src="js/core-monitoring.js"></script>        
+        <script src="js/bsc-alarm.js"></script>
+        <script src="js/ticket-ran-nonran.js"></script>
+        <!-- <script src="js/guide.js"></script> -->
+        <!-- <script src="js/network-summary.js"></script> -->
+        <!-- <script src="js/site-summary-alarm.js"></script> -->
+        <!-- <script src="js/transport-util.js"></script> -->
+        <!-- <script src="js/bsc-alarm2.js"></script> -->
+        <!-- <script src="js/ticket.js"></script> -->
+    </body>
+</html>
